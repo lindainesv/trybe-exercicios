@@ -2,7 +2,7 @@
 // Nesse exemplo o "switch/case" deverá imprimir no terminal a classificação de quais filmes podem ser assistidos
 // de acordo com a faixa etária de uma pessoa.
 
-let faixaEtaria = 'adulto';
+let faixaEtaria = 'adolescente';
 
 switch (faixaEtaria) {
   case 'adolescente':
@@ -26,7 +26,7 @@ switch (faixaEtaria) {
     case 'idoso':
       // Repetimos o mesmo processo para o case "idoso"
       console.log('A pessoa idosa é classificada para assistir qualquer filme');
-      break
+      break 
   default:
     // O "default" é utilizado como um retorno padrão caso o valor passado não encaixe em nenhum dos cases
     // Ou seja, se a pessoa, for criança, recém nascida, ou pertencente à qualquer outra faixa etária, essa será a lógica implementada.

@@ -7,4 +7,4 @@ const patientInfo = {
 const patientEmail = 'ana@email.com';
 
 // console.log(typeof patientAge);
-console.log(typeof patientId);
+console.log(typeof isEnrolled);
