@@ -17,5 +17,5 @@
 
 
 const hello = nome => `Ola, ${nome}!`
-let nome  = `Linda `
+let nome  = `Linda`
 console.log(hello(nome));
