@@ -1,4 +1,4 @@
-// arquivo script.js
+/* // arquivo script.js
 
 // Acessar elemento 'elementoOndeVoceEsta'.
 console.log(document.getElementById('elementoOndeVoceEsta').parentNode)
@@ -46,3 +46,4 @@ let terceiroFilhoPai = document.getElementById("pai").lastElementChild.previousE
 	console.log(terceiroFilhoPai);
 }; acesso8 ();
 
+ */
