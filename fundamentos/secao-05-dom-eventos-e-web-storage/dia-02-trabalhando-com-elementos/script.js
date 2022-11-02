@@ -1,4 +1,4 @@
-/* // arquivo script.js
+// arquivo script.js
 
 // Acessar elemento 'elementoOndeVoceEsta'.
 console.log(document.getElementById('elementoOndeVoceEsta').parentNode)
@@ -38,7 +38,7 @@ const acesso6 = () => {
 const acesso7 = () => {
 	let terceiroFilho = document.getElementById("elementoOndeVoceEsta").nextElementSibling;
 	console.log(terceiroFilho);
-}; acesso7 ();*/
+}; acesso7 ();
 
 // Acessar o terceiroFilho a partir de pai.
 const acesso8 = () => {
