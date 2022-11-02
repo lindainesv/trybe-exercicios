@@ -1,4 +1,4 @@
-/* // Crie um irmão para elementoOndeVoceEsta.
+// Crie um irmão para elementoOndeVoceEsta.
 //  1. recuperando o elemento a partir de 'pai'
 const pai = document.getElementById('pai');
 //  2. criando um novo elemento
@@ -30,4 +30,4 @@ primeiroFilhoDoFilho.appendChild(filhoDePrimeiroFilhoDoFilho);
 const acessoAo3 = () => {
 	let acessoAoTerceiroFilho = document.getElementById("filhoDePrimeiroFilhoDoFilho").parentElement.parentElement.nextElementSibling;
 	console.log(acessoAoTerceiroFilho);
-}; acessoAo3 (); */
+}; acessoAo3 ();
