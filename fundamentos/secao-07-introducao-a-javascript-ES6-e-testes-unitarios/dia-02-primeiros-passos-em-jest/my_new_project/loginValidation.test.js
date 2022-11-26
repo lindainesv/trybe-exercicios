@@ -1,4 +1,4 @@
-// loginValidation.test.js
+loginValidation.test.js
 const {
   greetingMessage,
   loginErrorMessage,
@@ -10,7 +10,7 @@ describe('a função verifyCredentials()', () => {
   it('verifyCredentials() calls the correct function depending on the user and password input', () => {
     //veja que testamos o objeto `user`agora com outros dados
     const user = {
-      userName: 'Bob',
+      userName: 'Joana',
       password: 123456,
     };
 
