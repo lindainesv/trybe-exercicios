@@ -9,3 +9,14 @@ const emailListInData = [
 emailListInData.forEach((email) => {
   console.log(`O email ${email} está cadastrado em nosso banco de dados!`);
 });
+{
+  {
+    {
+      {
+        {
+          
+        }
+      }
+    }
+  }
+}
