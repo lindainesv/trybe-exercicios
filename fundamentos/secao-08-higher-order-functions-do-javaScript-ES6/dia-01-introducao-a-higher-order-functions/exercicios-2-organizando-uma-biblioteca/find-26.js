@@ -63,19 +63,18 @@ const books = [
   },
 ];
 
-// Retorne o nome do livro de menor nome.
-// const expectedResult = 'Duna';
-const smallerName = () => {
-  let nameBook;
-  books.forEach((book) => {
-    if (!nameBook || book.name.length < nameBook.length) {
-      nameBook = book.name;
-    }
-  });
+// Encontre o primeiro livro cujo nome possua 26 caracteres.
+// const expectedResult = {
+//   author: {
+//     birthYear: 1948,
+//     name: 'George R. R. Martin',
+//   },
+//   genre: 'Fantasia',
+//   id: 1,
+//   name: 'As Crônicas de Gelo e Fogo',
+//   releaseYear: 1991,
+// };
 
-  // Variável nameBook que receberá o valor do menor nome;
-  return nameBook;
+const getNamedBook = () => {
+  return carac26 = books.find((book) => book.name.length === 26);
 };
-
-console.log(smallerName(books));
-// Duvida: Como faço para retornar todos os itens com menor tamanho identico?

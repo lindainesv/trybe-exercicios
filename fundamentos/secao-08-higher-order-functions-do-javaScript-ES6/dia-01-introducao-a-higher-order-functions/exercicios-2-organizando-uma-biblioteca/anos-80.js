@@ -63,19 +63,12 @@ const books = [
   },
 ];
 
-// Retorne o nome do livro de menor nome.
-// const expectedResult = 'Duna';
-const smallerName = () => {
-  let nameBook;
-  books.forEach((book) => {
-    if (!nameBook || book.name.length < nameBook.length) {
-      nameBook = book.name;
-    }
-  });
+// Faça uma função que retorne true, se algum livro foi lançado na década de 80, e false, caso contrário.
+const expectedResult = true;
 
-  // Variável nameBook que receberá o valor do menor nome;
-  return nameBook;
+const someBookWasReleaseOnThe80s = () => {
+  return books.some((book) => book.releaseYear >= 1980 && book.releaseYear <= 1989
+  );
 };
 
-console.log(smallerName(books));
-// Duvida: Como faço para retornar todos os itens com menor tamanho identico?
+console.log(someBookWasReleaseOnThe80s()); // true
