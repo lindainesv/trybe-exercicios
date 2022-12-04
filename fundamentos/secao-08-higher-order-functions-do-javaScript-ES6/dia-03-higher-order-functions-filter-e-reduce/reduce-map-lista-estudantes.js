@@ -87,12 +87,14 @@ const estudantes = [
 const relatorio = estudantes.map((estudante) => ({
   name: estudante.nome,
   materia: estudante.materias.reduce((acc, materia) => {
-    if (acc.nota > materia.nota) {
-      return acc;
-    } else {
-      return materia;
-    }
+    return acc.nota > materia.nota ? acc : materia;
   }).name,
 }));
-
 console.log(relatorio);
+
+// solução utilizando o 'if':
+// if (acc.nota > materia.nota) {
+//   return acc;
+// } else {
+//   return materia;
+// }
