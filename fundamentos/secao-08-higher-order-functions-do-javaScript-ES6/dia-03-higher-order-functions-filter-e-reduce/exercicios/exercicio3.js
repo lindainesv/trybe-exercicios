@@ -62,23 +62,13 @@ const books = [
 ];
 
 // Adicione o código do exercício aqui:
+// 3 - Faça uma função que retorne os nomes dos livros, dado o ano de nascimento das pessoas autoras.
+const expectedResult = ['Fundação', 'Duna'];
 
-// 2 - Filtre os livros com mais de 60 anos desde sua publicação e ordene a partir do livro mais velho para o mais novo.
-const oldBooksOrdered = () => {
-const 
+const livrosPorAutorEAnoNascimento = (birthYear) => {
+  return books
+    .filter((livro) => livro.author.birthYear === birthYear)
+    .map((livro) => livro.name);
 };
-
-
-// 5 - Crie um array com o nome de todos os livros com mais de 60 anos de publicação.
-const data = new Date().getFullYear();
-const oldBooks = (array) => {
-  return array
-  .filter((livro) => data - livro.releaseYear > 60)
-  .map(livro);
-};
-
-
-
-
-
-
+const result = livrosPorAutorEAnoNascimento(1920);
+console.log(result);
