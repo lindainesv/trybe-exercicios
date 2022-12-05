@@ -73,7 +73,6 @@ const authorWith3DotsOnName = () => {
     && livro.author.name[7] === '.'
   ))[0].name;
 };
-
 console.log(authorWith3DotsOnName());
 
 
