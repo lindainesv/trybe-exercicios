@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+  </head>
+  <body>
+    <p>Informe dois números para realizar a soma:</p>
+    <label for="value1">Valor 1:</label>
+    <input type="text" id="value1" />
+    <label for="value2">Valor 2:</label>
+    <input type="text" id="value2" />
+    <button id="button">Somar</button>
+    <p id="result"></p> 
+		
+
+    <script>
+      const verificarNumero = (value1, value2) => {
+        if (!value1 || !value2) {
+          throw new Error(
+            "Os campos devem ser preenchidos para realizar a soma"
+          );
+        }
+        if (isNaN(value1) || isNaN(value2)) {
+          throw new Error("Insira dois numeros para realizar a soma");
+        }
+      };
+
+      function sum() {
+        try {
+          const value1 = document.getElementById("value1").value;
+          const value2 = document.getElementById("value2").value;
+          verificarNumero(value1, value2);
+          const result = Number(value1) + Number(value2);
+          document.getElementById("result").innerHTML = `Resultado: ${result}`;
+        } catch (error) {
+          document.getElementById(
+            "result"
+          ).innerHTML = `Erro: ${error.message}`;
+        } finally {
+          document.getElementById("value1").value = "";
+          document.getElementById("value2").value = "";
+        }
+
+        document.getElementById("value1").value = "";
+        document.getElementById("value2").value = "";
+      }
+
+      window.onload = () => {
+        const button = document.getElementById("button");
+        button.addEventListener("click", sum);
+      };
+    </script>
+  </body>
+</html>
+
+<!-- -------------------------- -->
+
+<!-- <script>
+  const isVazio = (param1, param2) => {
+    if (param1.length < 1 || param2.length < 1) {
+      throw new Error("Seje mais, xablau");
+    }
+  };
+
+  const isNumero = (param1, param2) => {
+    if (isNaN(Number(param1)) || isNaN(Number(param2))) {
+      throw new Error("Ejes siam, ualbaX");
+    }
+  };
+
+  function sum() {
+    const value1 = document.getElementById("value1").value;
+    const value2 = document.getElementById("value2").value;
+    const pResult = document.getElementById("result");
+    let resultado = "";
+    let erro = false;
+    try {
+      isVazio(value1, value2);
+      isNumero(value1, value2);
+    } catch (error) {
+      erro = true;
+      resultado = error.message;
+    } finally {
+      if (!erro) {
+        const result = Number(value1) + Number(value2);
+        resultado = `Resultado: ${result}`;
+      }
+      document.getElementById("value1").value = "";
+      document.getElementById("value2").value = "";
+      pResult.innerHTML = resultado;
+    }
+  }
+
+  window.onload = () => {
+    const button = document.getElementById("button");
+    button.addEventListener("click", sum);
+  };
+</script> -->
