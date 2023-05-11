@@ -56,10 +56,11 @@ function classificacaoIMC(imc) {
   const altura = readline.questionInt('Qual a sua altura? (cm)');
   const imc = calculoIMC(peso, altura);
   const resultadoIMC = classificacaoIMC(imc);
-  console.log(`Resultado: ${resultadoIMC}`)
 
   //  const imc = calculoIMC(pesoKG, alturaCM);
   console.log(`IMC: ${imc.toFixed(2)}`); // toFixed = é para ter apenas duas casas apos o ponto
+
+  console.log(`Resultado: ${resultadoIMC}`)
 }
 //  console.log();
 retorno();
