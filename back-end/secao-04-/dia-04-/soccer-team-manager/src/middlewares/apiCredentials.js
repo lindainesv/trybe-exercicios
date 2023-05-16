@@ -1,5 +1,3 @@
-// src/middlewares/apiCredentials.js
-
 const fs = require('fs/promises');
 
 // como vamos ler arquivos assincronamente, precisamos do async

@@ -1,17 +1,15 @@
-// src/app.js
+const express = require('express');
+require('express-async-errors');
+
+const apiCredentials = require('./middlewares/apiCredentials');
+
+const app = express();
+
 const teams = [
   { id: 1, nome: 'São Paulo Futebol Clube', sigla: 'SPF' },
   { id: 2, nome: 'Sociedade Esportiva Palmeiras', sigla: 'PAL' },
 ];
-
 let nextId = 3;
-
-const express = require('express');
-
-const app = express();
-
-// const apiCredentials = require('./middlewares/apiCredentials');
-// app.use(apiCredentials); 
 
 const validateTeam = require('./middlewares/validateTeam');
 
@@ -20,9 +18,10 @@ const existingId = require('./middlewares/existingId');
 app.use(validateTeam);
 
 app.use(express.json());
+// se chegou até aqui, então vai passar pelo apiCredentials
+app.use(apiCredentials); 
 
 app.get('/teams', (req, res) => res.json(teams));
-
 // app.get('/teams/:id', (req, res) => {
 //   const id = Number(req.params.id);
 //   const team = teams.find((t) => t.id === id);
@@ -33,6 +32,7 @@ app.get('/teams', (req, res) => res.json(teams));
 //   }
 // });
 
+// só vai chegar aqui se tiver credenciais
 app.get('/teams/:id', existingId, (req, res) => {
   const id = Number(req.params.id);
   const team = teams.find((t) => t.id === id);
