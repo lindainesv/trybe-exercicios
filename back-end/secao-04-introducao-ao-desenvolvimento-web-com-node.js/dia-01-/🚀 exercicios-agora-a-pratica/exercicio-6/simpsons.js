@@ -8,7 +8,6 @@ async function leituraDados() {
   strings.forEach((string) => console.log(string));
 }
 
-
 async function simpsonsID(id) {
   const dados = await fs.readFile('./simpsons.json', 'utf-8');
   const dadosJson = JSON.parse(dados);
