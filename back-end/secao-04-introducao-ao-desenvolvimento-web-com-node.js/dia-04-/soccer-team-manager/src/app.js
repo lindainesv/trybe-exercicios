@@ -22,15 +22,16 @@ app.use(express.json());
 app.use(apiCredentials); 
 
 app.get('/teams', (req, res) => res.json(teams));
-// app.get('/teams/:id', (req, res) => {
-//   const id = Number(req.params.id);
-//   const team = teams.find((t) => t.id === id);
-//   if (team) {
-//     res.json(team);
-//   } else {
-//     res.sendStatus(404);
-//   }
-// });
+
+app.get('/teams/:id', (req, res) => {
+  const id = Number(req.params.id);
+  const team = teams.find((t) => t.id === id);
+  if (team) {
+    res.json(team);
+  } else {
+    res.sendStatus(404);
+  }
+});
 
 // só vai chegar aqui se tiver credenciais
 app.get('/teams/:id', existingId, (req, res) => {
