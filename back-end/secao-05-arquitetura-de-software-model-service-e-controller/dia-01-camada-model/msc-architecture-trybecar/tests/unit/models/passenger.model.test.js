@@ -1,31 +1,25 @@
-// tests/unit/models/passenger.model.test.js
 const { expect } = require('chai');
 const sinon = require('sinon');
-const { findAll, findById } = require('../../../src/models/passenger.model');
+const { passengerModel } = require('../../../src/models');
 
 const connection = require('../../../src/models/connection');
 const { passengers, newPassenger } = require('./mocks/passenger.model.mock');
-const passengerModel = require('../../../src/models/passenger.model');
 
 describe('Testes de unidade do model de pessoas passageiras', function () {
   it('Recuperando a lista de pessoas passageiras', async function () {
     // Arrange
     sinon.stub(connection, 'execute').resolves([passengers]);
     // Act
-    const result = await findAll();
+    const result = await passengerModel.findAll();
     // Assert
     expect(result).to.be.deep.equal(passengers);
-  });
-
-  afterEach(function () {
-    sinon.restore();
   });
 
   it('Recuperando uma pessoa passageira a partir do seu id', async function () {
     // Arrange
     sinon.stub(connection, 'execute').resolves([[passengers[0]]]);
     // Act
-    const result = await findById(1);
+    const result = await passengerModel.findById(1);
     // Assert
     expect(result).to.be.deep.equal(passengers[0]);
   });
@@ -37,5 +31,9 @@ describe('Testes de unidade do model de pessoas passageiras', function () {
     const result = await passengerModel.insert(newPassenger);
     // Assert
     expect(result).to.equal(42);
+  });
+
+  afterEach(function () {
+    sinon.restore();
   });
 });
