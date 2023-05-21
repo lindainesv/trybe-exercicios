@@ -1,5 +1,6 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
+
 const { driverModel } = require('../../../src/models');
 const connection = require('../../../src/models');
 
@@ -18,7 +19,11 @@ describe('Driver Model', function () {
     
     sinon.stub(connection, 'execute').resolves(execute);
   });
-  
+
+  after(async function () {
+    connection.execute.restore();
+  });
+
   it('com o tipo array', async function () {
     const response = await driverModel.findAll();
     expect(response).to.be.a('array');
@@ -41,7 +46,57 @@ describe('Driver Model', function () {
     expect(response).to.deep.equal(expected);
   });
 });
-after(async function () {
-  connection.execute.restore();
-});
+
+  describe('Encontra uma pessoa motorista pelo id', function () {
+    before(async function () {
+      const execute = [
+        {
+          id: 2,
+          name: 'Fábio Frazão',
+        },
+      ];
+
+      sinon.stub(connection, 'execute').resolves([execute]);
+    });
+  
+    after(async function () {
+      connection.execute.restore();
+    });
+
+    const expected = {
+      id: 2,
+      name: 'Fábio Frazão',
+    };
+
+    const payload = 2;
+
+    it('com sucesso', async function () {
+      const response = await driverModel.findById(payload);
+      expect(response).to.deep.equal(expected);
+    });
+  });
+
+  describe('Cadastra uma pessoa motorista', function () {
+    before(async function () {
+      const execute = { insertId: 1 };
+
+      sinon.stub(connection, 'execute').resolves([execute]);
+    });
+  
+    after(async function () {
+      connection.execute.restore();
+    });
+
+    it('com sucesso', async function () {
+      const expected = 1;
+
+      const payload = {
+        name: 'Liana Cisneiros',
+      };
+
+      const response = await driverModel.insert(payload);
+
+      expect(response).to.equal(expected);
+    });
+  });
 });
