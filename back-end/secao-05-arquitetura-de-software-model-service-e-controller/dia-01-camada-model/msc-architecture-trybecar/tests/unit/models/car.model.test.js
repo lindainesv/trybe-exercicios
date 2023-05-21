@@ -3,65 +3,26 @@ const { expect } = require('chai');
 
 const { carModel } = require('../../../src/models');
 const connection = require('../../../src/models/connection');
+const { carModels, newCar } = require('./mocks/car.model.mock');
 
 describe('Car Model', function () {
-  describe('Cadastra um novo carro', function () {
-    before(async function () {
-      const execute = { insertId: 1 };
+  it('Encontra um carro pelo id', async function () {
+      sinon.stub(connection, 'execute').resolves([[carModels[0]]]);
 
-      sinon.stub(connection, 'execute').resolves([execute]);
+      const result = await carModel.findById(1);
+
+      expect(result).to.equal(carModels[0]);
     });
 
-    after(async function () {
-      connection.execute.restore();
-    });
+  it('Cadastra um novo carro', async function () {
+    sinon.stub(connection, 'execute').resolves([{ insertId: 8 }]);
 
-    const expected = 1;
+    const result = await carModel.insert(newCar);
 
-    const payload = {
-      model: 'Renault Sandero',
-      color: 'Branco',
-      licensePlate: 'NCA-0956',
-    };
-
-    it('com sucesso', async function () {
-      const response = await carModel.insert(payload);
-
-      expect(response).to.equal(expected);
-    });
+    expect(result).to.equal(8);
   });
   
-  describe('Encontra um carro pelo id', function () {
-    before(async function () {
-      const execute = [
-        {
-          id: 2,
-          model: 'Volkswagen Gol',
-          color: 'Vermelho',
-          license_plate: 'DZG-4376',
-        },
-      ];
-  
-      sinon.stub(connection, 'execute').resolves([execute]);
-    });
-
-    after(async function () {
-      connection.execute.restore();
-    });
-    
-    const expected = {
-      id: 2,
-      model: 'Volkswagen Gol',
-      color: 'Vermelho',
-      licensePlate: 'DZG-4376',
-    };
-
-    const payload = 2;
-
-    it('com sucesso', async function () {
-      const response = await carModel.findById(payload);
-
-      expect(response).to.be.equal(expected);
-    });
+  afterEach(function () {
+    sinon.restore();
   });
 });

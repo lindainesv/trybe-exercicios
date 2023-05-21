@@ -2,101 +2,35 @@ const sinon = require('sinon');
 const { expect } = require('chai');
 
 const { driverModel } = require('../../../src/models');
-const connection = require('../../../src/models');
+const connection = require('../../../src/models/connection');
+const { drivers, newDriver } = require('./mocks/driver.model.mock');
 
 describe('Driver Model', function () {
-  describe('Lista todas as pessoas motoristas', function () {
-    before(async function () {
-      const execute = [{
-        id: 1,
-        name: 'Liana Cisneiros',
-      },
-      {
-        id: 2,
-        name: 'Fábio Frazão',
-      },
-    ];
-    
-    sinon.stub(connection, 'execute').resolves(execute);
+  it('Lista todas as pessoas motoristas', async function () {
+    sinon.stub(connection, 'execute').resolves([drivers]);
+
+    const result = await driverModel.findAll();
+
+    expect(result).to.be.deep.equal(drivers);
   });
 
-  after(async function () {
-    connection.execute.restore();
+  it('Encontra uma pessoa motorista pelo id', async function () {
+    sinon.stub(connection, 'execute').resolves([[drivers[0]]]);
+
+    const result = await driverModel.findById(1);
+
+    expect(result).to.be.deep.equal(drivers[0]);
   });
 
-  it('com o tipo array', async function () {
-    const response = await driverModel.findAll();
-    expect(response).to.be.a('array');
-  });
-  
-  it('com sucesso', async function () {
-    const expected = [
-      {
-        id: 1,
-        name: 'Liana Cisneiros',
-      }, 
-      {
-        id: 2,
-        name: 'Fábio Frazão',
-      },
-    ];
-    
-    const response = await driverModel.findAll();
-    
-    expect(response).to.deep.equal(expected);
-  });
-});
+  it('Cadastra uma pessoa motorista', async function () {
+    sinon.stub(connection, 'execute').resolves([{ insertId: 10 }]);
 
-  describe('Encontra uma pessoa motorista pelo id', function () {
-    before(async function () {
-      const execute = [
-        {
-          id: 2,
-          name: 'Fábio Frazão',
-        },
-      ];
+    const result = await driverModel.insert(newDriver);
 
-      sinon.stub(connection, 'execute').resolves([execute]);
-    });
-  
-    after(async function () {
-      connection.execute.restore();
-    });
-
-    const expected = {
-      id: 2,
-      name: 'Fábio Frazão',
-    };
-
-    const payload = 2;
-
-    it('com sucesso', async function () {
-      const response = await driverModel.findById(payload);
-      expect(response).to.deep.equal(expected);
-    });
+    expect(result).to.be.equal(10);
   });
 
-  describe('Cadastra uma pessoa motorista', function () {
-    before(async function () {
-      const execute = { insertId: 1 };
-
-      sinon.stub(connection, 'execute').resolves([execute]);
-    });
-  
-    after(async function () {
-      connection.execute.restore();
-    });
-
-    it('com sucesso', async function () {
-      const expected = 1;
-
-      const payload = {
-        name: 'Liana Cisneiros',
-      };
-
-      const response = await driverModel.insert(payload);
-
-      expect(response).to.equal(expected);
-    });
+  afterEach(function () {
+    sinon.restore();
   });
 });
