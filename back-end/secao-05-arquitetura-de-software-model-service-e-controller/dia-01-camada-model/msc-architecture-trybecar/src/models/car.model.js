@@ -11,7 +11,7 @@ const insert = async (car) => {
 };
 
 const findById = async (carId) => {
-  await connection.execute(
+  const [result] = await connection.execute(
   'SELECT * FROM cars WHERE id = ?',
   [carId],
   );
