@@ -1,3 +1,4 @@
+const camelize = require('camelize');
 const connection = require('./connection');
 
 const insert = async (car) => {
@@ -9,6 +10,16 @@ const insert = async (car) => {
   return insertId;
 };
 
+const findById = async (carId) => {
+  await connection.execute(
+  'SELECT * FROM cars WHERE id = ?',
+  [carId],
+  );
+  
+  return camelize(result);
+};
+
 module.exports = {
   insert,
+  findById,
 };
