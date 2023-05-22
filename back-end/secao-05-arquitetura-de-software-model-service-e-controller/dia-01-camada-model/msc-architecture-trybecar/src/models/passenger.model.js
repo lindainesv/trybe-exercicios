@@ -1,5 +1,5 @@
-const camelize = require('camelize');
 const snakeize = require('snakeize');
+const camelize = require('camelize');
 const connection = require('./connection');
 
 const findAll = async () => {
