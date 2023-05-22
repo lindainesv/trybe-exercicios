@@ -36,6 +36,23 @@ describe('Testes de unidade do model de viagens', function () {
     expect(result).to.be.deep.equal(travels);
   });
 
+  it('Atualizando uma travel a partir do seu id - rota ../assing', async function () {
+    // Arrange
+    sinon.stub(connection, 'execute').resolves([{ affectedRows: 1, changedRows: 1 }]);
+
+    const travelId = 1;
+    const dataToUpdate = {
+      driverId: 1, travelStatusId: 2,
+    };
+
+    // Act
+    const result = await travelModel.updateById(travelId, dataToUpdate);
+
+    // Assert
+    expect(result[0].affectedRows).to.be.equal(1);
+    expect(result[0].changedRows).to.be.equal(1);
+  }); 
+ 
   afterEach(function () {
     sinon.restore();
   });
