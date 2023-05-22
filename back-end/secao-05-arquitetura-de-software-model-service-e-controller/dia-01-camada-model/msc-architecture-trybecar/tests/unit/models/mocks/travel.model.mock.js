@@ -9,7 +9,6 @@ const newTravel = {
 
 const travelsFromDB = [
   {
-    
     id: 1,
     driver_id: 3,
     passenger_id: 4,
@@ -19,7 +18,6 @@ const travelsFromDB = [
     request_date: '20202',
   },
   {
-    
     id: 2,
     driver_id: 1,
     passenger_id: 2,
