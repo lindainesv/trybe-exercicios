@@ -1,3 +1,4 @@
+/* eslint-disable no-return-await */
 const snakeize = require('snakeize');
 const camelize = require('camelize');
 const connection = require('./connection');
@@ -33,8 +34,14 @@ const findByTravelStatusId = async (travelStatusId) => {
   return camelize(result);
 };
 
+const updateById = async (travelId, dataToUpdate) => await connection.execute(
+  'UPDATE travels SET driver_id = ?, travel_status_id = ? WHERE id = ?',
+  [...Object.values(dataToUpdate), travelId],
+);
+
 module.exports = {
   insert,
   findById,
   findByTravelStatusId,
+  updateById,
 };
