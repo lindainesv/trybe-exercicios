@@ -1,4 +1,8 @@
-const { idSchema, addPassengerSchema, addRequestTravelSchema } = require('./schemas');
+const { 
+  idSchema, 
+  addPassengerSchema, 
+  addRequestTravelSchema, 
+} = require('./schemas');
 
 const validateId = (id) => {
   const { error } = idSchema.validate(id);
