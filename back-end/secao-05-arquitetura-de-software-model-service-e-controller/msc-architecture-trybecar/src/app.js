@@ -4,6 +4,11 @@ const { travelModel } = require('./models');
 /* Adicionamos a importação dos services */
 const { passengerService, driverService } = require('./services');
 
+<<<<<<< Updated upstream
+=======
+const { passengerRouter, driverRouter } = require('./routers');
+
+>>>>>>> Stashed changes
 const app = express();
 
 app.use(express.json());
@@ -54,4 +59,11 @@ app.put('/drivers/:driverId/travels/:travelId/end', async (req, res) => {
   res.status(200).json(result);
 });
 
+<<<<<<< Updated upstream
+=======
+app.use('/passengers', passengerRouter);
+
+app.use('/drivers', driverRouter);
+
+>>>>>>> Stashed changes
 module.exports = app;
