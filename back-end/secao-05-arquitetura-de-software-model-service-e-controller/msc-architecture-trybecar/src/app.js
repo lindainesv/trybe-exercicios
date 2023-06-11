@@ -4,6 +4,8 @@ const { travelModel } = require('./models');
 /* Adicionamos a importação dos services */
 const { passengerService, driverService } = require('./services');
 
+const { passengerRouter, driverRouter } = require('./routers');
+
 const app = express();
 
 app.use(express.json());
@@ -53,5 +55,9 @@ app.put('/drivers/:driverId/travels/:travelId/end', async (req, res) => {
   const result = await travelModel.findById(travelId);
   res.status(200).json(result);
 });
+
+app.use('/passengers', passengerRouter);
+
+app.use('/drivers', driverRouter);
 
 module.exports = app;
