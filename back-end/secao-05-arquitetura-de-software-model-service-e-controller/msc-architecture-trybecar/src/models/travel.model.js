@@ -39,6 +39,7 @@ const updateById = async (travelId, dataToUpdate) => await connection.execute(
   [...Object.values(dataToUpdate), travelId],
 );
 
+
 module.exports = {
   insert,
   findById,
