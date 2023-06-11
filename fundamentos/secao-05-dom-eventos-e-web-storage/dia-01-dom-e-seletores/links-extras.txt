@@ -1,0 +1,12 @@
+Mal pode esperar pra estudar mais JavaScript? Aqui temos o sumário do guia definitivo de JS para você saber mais sobre a linguagem.
+https://www.oreilly.com/library/view/javascript-the-definitive/9781491952016/#toc-start
+
+Artigo - Trabalhando com DOM em JavaScript
+https://www.devmedia.com.br/trabalhando-com-dom-em-javascript/29039
+
+Mais exercícios de DOM (mais avançados)
+https://www.w3resource.com/javascript-exercises/javascript-dom-exercises.php
+
+Playground do Codepen para praticar
+https://codepen.io/andrewatts85/pen/rjmVBG
+
