@@ -1,0 +1,25 @@
+{
+  "name": "secao-01-ambiente-de-desenvolvimento",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite --open",
+    "lint": "eslint ./src",
+    "build": "vite build",
+    "preview": "vite preview --port 4173"
+  },
+  "keywords": [],
+  "author": "Linda Inês",
+  "license": "ISC",
+  "dependencies": {
+    "clipboard-copy": "^4.0.1",
+    "nanoid": "^4.0.0",
+    "vite": "^4.0.4"
+  },
+  "type": "module",
+  "devDependencies": {
+    "eslint": "^8.31.0"
+  }
+}
