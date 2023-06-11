@@ -6,7 +6,7 @@ const findAll = async () => {
   const [result] = await connection.execute(
     'SELECT * FROM passengers',
   );
-  return camelize(result); 
+  return camelize(result);
 };
 
 const findById = async (passengerId) => {

@@ -35,9 +35,10 @@ const findByTravelStatusId = async (travelStatusId) => {
 };
 
 const updateById = async (travelId, dataToUpdate) => await connection.execute(
-    'UPDATE travels SET driver_id = ?, travel_status_id = ? WHERE id = ?',
-    [...Object.values(dataToUpdate), travelId],
-  );
+  'UPDATE travels SET driver_id = ?, travel_status_id = ? WHERE id = ?',
+  [...Object.values(dataToUpdate), travelId],
+);
+
 
 module.exports = {
   insert,
