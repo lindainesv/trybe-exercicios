@@ -1,9 +1,0 @@
-# pack-refs with: peeled fully-peeled sorted 
-774ba4a132e48a5066323efda1be0b7206760256 refs/remotes/origin/complex-application
-76eaefcc0b75df30e795f41aaef4c614a47359c0 refs/remotes/origin/main
-2593e0da3427e8e4a4d6874cbe464dce6f3b91e3 refs/remotes/origin/simple-application-controller-course
-11168e0ec61efba28e11255d8bfe02a6c8416faf refs/remotes/origin/simple-application-controller-live-lectures
-607899a219a75093a784c2c632f81c8b8eb1d636 refs/remotes/origin/simple-application-model-course
-801bd47f5f182ef778e7719b65997ffe4fd9770d refs/remotes/origin/simple-application-model-live-lectures
-137377df9100b00fc25359dbbe25e497491965ea refs/remotes/origin/simple-application-service-course
-103effdd3ccbca236c6312a91d5fcf08d27fca36 refs/remotes/origin/simple-application-service-live-lectures
