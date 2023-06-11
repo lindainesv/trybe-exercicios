@@ -1,0 +1,11 @@
+🚀 Exercício 1
+Qual é a função do código de status 400 e 422?
+
+  400 - mostra que nao pode processar a solicitação devido a um erro percebido como do cliente.
+  422 - diz que apesar da solicitação ter sido bem informada, houve erros semanticos que impediram
+        que ela fosse atendida.
+
+🚀 Exercício 2
+Qual é a função do código de status 401?
+  401 - informa que o cliente deve se autenticar para obter a resposta solicitada, estando entao não
+        autenticado
