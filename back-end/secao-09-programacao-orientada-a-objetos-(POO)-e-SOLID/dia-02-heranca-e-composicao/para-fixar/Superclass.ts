@@ -11,10 +11,16 @@ class Superclass {
   }
 }
 
-class Subclass extends Superclass { } // outra classe criada
+class Subclass extends Superclass { // outra classe criada
+  constructor() {
+    super();
+    this.isSuper = false;
+  }
+} 
 
 const myFunc = (objSuper: Superclass) => { // criação da função 'myFunc' e chamada do metodo como parametro
   objSuper.sayHello(); // chamada do metodo 'sayHello' da Superclass
+  console.log(objSuper.isSuper ? 'Super!' : 'Sub!');
 };
 
 const sup = new Superclass(); // criação de um objeto da Superclass
