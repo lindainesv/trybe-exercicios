@@ -30,7 +30,7 @@ def calcular_percentual_por_categoria(calculo_por_categoria, total):
 def escrever_csv(file, header, rows):
     writer = csv.writer(file)
     writer.writerow(header)
-    writer.writerow(rows)
+    writer.writerows(rows)
 
 
 if __name__ == "__main__":
@@ -48,6 +48,6 @@ if __name__ == "__main__":
     )
 
     # escrever
-    header = ["categoria", "percentagem"]
+    header = ["categoria", " percentagem"]
     with open("livros.csv", "w") as file:
         escrever_csv(file, header, porcentagem_por_tipo_de_livros)
