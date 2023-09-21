@@ -10,6 +10,7 @@ def mean(numbers):
     >>> mean([])
     Traceback (most recent call last):
     ...
+    # tres pontos se chama Python Ellipsis
     ZeroDivisionError: division by zero
 
     """
